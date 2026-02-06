@@ -5,6 +5,13 @@ import { Avatar as AvatarPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Renders an Avatar root element with size variants and composed styling.
+ *
+ * @param className - Additional CSS class names applied to the avatar root
+ * @param size - Size variant for the avatar: "sm", "default", or "lg"
+ * @returns The Avatar primitive root element with applied classes and props
+ */
 function Avatar({
   className,
   size = "default",
@@ -25,6 +32,11 @@ function Avatar({
   )
 }
 
+/**
+ * Render an avatar image element with a square aspect ratio and full size.
+ *
+ * @returns The AvatarPrimitive.Image element with `data-slot="avatar-image"` and a composed `className` ensuring square aspect (`aspect-square`) and full sizing.
+ */
 function AvatarImage({
   className,
   ...props
@@ -38,6 +50,11 @@ function AvatarImage({
   )
 }
 
+/**
+ * Renders the fallback content for an Avatar (e.g., initials) when the image is unavailable.
+ *
+ * @returns The Avatar fallback React element with sizing, centering, and muted styling applied.
+ */
 function AvatarFallback({
   className,
   ...props
@@ -54,6 +71,12 @@ function AvatarFallback({
   )
 }
 
+/**
+ * Renders a positioned status badge anchored to an Avatar.
+ *
+ * @param className - Additional CSS classes to merge with the component's default classes
+ * @returns The rendered span element serving as the avatar badge
+ */
 function AvatarBadge({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
@@ -70,6 +93,12 @@ function AvatarBadge({ className, ...props }: React.ComponentProps<"span">) {
   )
 }
 
+/**
+ * Groups multiple avatars in a horizontally overlapping container with shared ring styling.
+ *
+ * @param className - Additional class names applied to the container element
+ * @returns The avatar group `div` element
+ */
 function AvatarGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -83,6 +112,13 @@ function AvatarGroup({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * Displays a compact, circular count badge for an AvatarGroup.
+ *
+ * Renders a div with `data-slot="avatar-group-count"` that applies ring, sizing, and responsive size rules driven by the parent group's `data-size`; additional class names passed via `className` are merged into the element.
+ *
+ * @returns The badge element used to show a numeric overflow/count inside an AvatarGroup.
+ */
 function AvatarGroupCount({
   className,
   ...props
